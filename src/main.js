@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 // import HelloWorldScene from './scenes/HelloWorldScene'
-import CoronaBusterScene from "./scenes/CoronaBusterScene";
+import CoronaBusterScene from "./scenes/CurseroClickerScenes";
 
 const config = {
   type: Phaser.AUTO,
