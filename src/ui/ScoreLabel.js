@@ -16,8 +16,5 @@ export default class ScoreLabel extends Phaser.GameObjects.Text {
   }
   add(points) {
     this.setScore(this.score + points);
-    if (this.scoreLabel.getScore(100) % 100 == 0) {
-      this.score += 24;
-    }
   }
 }

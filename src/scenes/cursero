@@ -22,15 +22,14 @@ export default class CoronaBusterScenes extends Phaser.Scene {
     const gameHeight = this.scale.height * 0.5;
     this.add.image(gameWidth, gameHeight, "background");
 
-    // Create a reference to the shoot button
+    // Create the cursor sprite and set it up to respond to pointer down events
     this.cursors = this.createCursor(200, 310, "cursor", {
       width: 100,
       height: 100,
     });
-    this.cursors.setInteractive();
+    this.cursors.setInteractive(); // Make the cursor sprite interactive
 
-    // Add a click event listener to the shoot button
-
+    // Listen for the pointer down event on the cursor sprite
     this.cursors.on("pointerdown", this.handleCursorClick, this);
 
     this.cursor = this.input.keyboard.createCursorKeys();
@@ -59,31 +58,10 @@ export default class CoronaBusterScenes extends Phaser.Scene {
   }
 
   handleCursorClick() {
-    if (this.score >= 18446744073709551615) {
-      this.score += 18446744073709551615; //this is 18qn
-    } else if (this.score >= 2340957817349859) {
-      this.score += 349958729486717853; // this is +349qd and needs 2qd
-    } else if (this.score >= 32497168917456) {
-      this.score += 298394581968348; // this is +298T and needs 32T
-    } else if (this.score >= 67298756827) {
-      this.score += 554747835983; // this is +554B and needs 67B
-    } else if (this.score >= 29572795) {
-      this.score += 239573948; // this is +239M and needs 29M
-    } else if (this.score >= 1958204) {
-      this.score += 500000;
-    } else if (this.score >= 100000) {
-      this.score += 100000;
-    } else if (this.score >= 15000) {
-      this.score += 5000;
-    } else if (this.score >= 1000) {
-      this.score += 250;
-    } else if (this.score >= 100) {
-      this.score += 25;
-    } else {
-      this.score += 1;
+    this.score += 1;
+    this.scoreLabel.setScore(this.score);
+    if (this.scoreLabel.getScore() % 100 == 0) {
+      this.score += 24;
     }
-
-    // Update the score when the shoot button is clicked
-    this.scoreLabel.setScore(this.score); // Update the ScoreLabel
   }
 }
